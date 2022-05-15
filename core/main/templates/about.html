@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="w3-row-padding w3-padding-16" id="about">
+    {% for item in about %}
+    <div class="w3-col m6">
+      <img src="{{ item.photo1.url }}" alt="Me" style="width:100%">
+    </div>
+    <div class="w3-col m6">
+      <img src="{{ item.photo2.url }}" alt="Me" style="width:100%">
+    </div>
+  </div>
+
+  <div class="w3-container w3-padding-large" style="margin-bottom:32px">
+    <h4><b>{{ item.title }}</b></h4>
+    <p>{{ item.content }}</p>
+    {% endfor %}
+    
+    <h4>Technical Skills</h4>
+    <!-- Progress bars / Skills -->
+    <p>Photography</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:95%">95%</div>
+    </div>
+    <p>Web Design</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:85%">85%</div>
+    </div>
+    <p>Photoshop</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:80%">80%</div>
+    </div>
+  </div>
+{% endblock %}

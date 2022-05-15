@@ -1,31 +1,27 @@
+from multiprocessing import context
 import re
 from tkinter import N
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from .models import Post, About
 
 
 
 def index(request):
-    return render(request, 'index.html')
+    posts = Post.objects.all()
+    context = {
+        'posts':posts
+    }
+    return render(request, 'index.html', context=context)
 
-def result(request):
-    number=int(request.POST['number'])
-    
-    def fibonacci(number):
-        res = 0
-        if number < 0:
-            res = 'noooo'
-        elif number == 0:
-            res = 0
-        elif number == 1 or number == 2:
-            res = 1
-        else:
-            res = fibonacci(number-1) + fibonacci(number-2)
-        return res
-    res = fibonacci(number)
+def about(request):
+    about = About.objects.all()
+    context = {
+        'about': about
+    }
+    return render(request, 'about.html', context=context)
 
-    return render(request, 'result.html', {'res' : res})
+
     
     
         

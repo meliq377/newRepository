@@ -1,5 +1,6 @@
 from django.contrib import admin
+from .models import Post, About
 
-from .models import Team
+admin.site.register(Post)
+admin.site.register(About)
 
-admin.site.register(Team)
